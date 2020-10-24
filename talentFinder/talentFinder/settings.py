@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app_home'
+    'app_home',
+    'app_players'
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'templates/'),
-            os.path.join(BASE_DIR, 'app_home/templates/')
+            os.path.join(BASE_DIR, 'app_home/templates/'),
+            os.path.join(BASE_DIR, 'app_players/templates/')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -78,10 +80,7 @@ WSGI_APPLICATION = 'talentFinder.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    
 }
 
 
@@ -128,3 +127,8 @@ COMPRESS_ROOT = os.path.join(BASE_DIR, 'static')
 COMPRESS_URL = STATIC_URL
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+try:
+    from .local_settings import * # NOQA
+except ImportError:
+    pass
