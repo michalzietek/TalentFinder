@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import path, re_path, include
 
 apps = [
-    re_path(r'', include('app_home.urls'))
+    re_path(r'', include('app_home.urls')),
+    re_path(r'players/', include('app_players.urls')),
 ]
 
 urlpatterns = apps + [
