@@ -1,5 +1,52 @@
 {% extends 'index.html' %}
 
 {% block container-fluid %}
-    <li><a href="">hahahahaha</a></li>
+    <div class="row">
+        <h2> Players List </h2>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                       <a href="{% url 'add_player' %}" id="add-player-btn" class="btn btn-success btn-icon-split mr-md-1 mx-auto" data-toggle="tooltip" data-placement="bottom" title="Add player">
+                         <span class="icon d-flex">
+                         <i class="fas fa-plus my-auto"></i>
+                         </span>
+                         <span class="text">Add player</span>
+                       </a>
+            </div>
+        </div>
+       <div class="card-body">
+          <div class="table-responsive">
+             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                   <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Surname</th>
+                      <th scope="col">Club</th>
+                      <th scope="col">Position</th>
+                      <th scope="col">Rating</th>
+                      <th scope="col">Actions</th>
+                   </tr>
+                </thead>
+                 <tbody>
+                     {% for player in players %}
+                     <tr>
+                        <td>{{ player.name }}</td>
+                        <td>{{ player.last_name }}</td>
+                        <td>{{ player.club }}</td>
+                        <td>{{ player.position }}</td>
+                        <td>{{ player.rating }}</td>
+                         <td class="text-right">
+                             <a href="#" class="btn-sm btn-primary" data-toggle="tooltip" data-placement="bottom"  title="Details"><i class="fas fa-info-circle"></i></a>
+                             <a href="#" data-url="#" class="btn-sm btn-success edit-contractor-btn" data-id="{{ player.id }}" data-toggle="tooltip" data-placement="bottom"  title="Edit"><i class="fas fa-fw fa-edit"></i></a>
+                             <a data-id="{{ player.id }}" class="delete-player-btn btn-sm btn-danger" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-fw fa-trash-alt"></i></a>
+              </td>
+                    </tr>
+                    {% endfor %}
+                 </tbody>
+             </table>
+          </div>
+       </div>
+    </div>
+{% include 'modals/delete_player_modal.html' %}
 {% endblock %}
