@@ -17,13 +17,13 @@ class Player(models.Model):
         ('CDM', 'central defending midfielder'),
 
     )
-    name = models.CharField(max_length=255, null=None, blank=None ,verbose_name="Imię")
-    last_name = models.CharField(max_length=255, null=None, blank=None ,verbose_name="Nazwisko")
-    club = models.CharField(max_length=255, default=True, verbose_name="Klub")
-    position = models.CharField(max_length=3,choices=POSITION_CHOICES, verbose_name="Pozycja")
+    name = models.CharField(max_length=255, null=None, blank=None ,verbose_name="Name")
+    last_name = models.CharField(max_length=255, null=None, blank=None ,verbose_name="Last Name")
+    club = models.CharField(max_length=255, default=True, verbose_name="Club")
+    position = models.CharField(max_length=3,choices=POSITION_CHOICES, verbose_name="Position")
     rating = models.FloatField(validators=[MinValueValidator(0.1), MaxValueValidator(10.0)], default=False, null=True)
     description = models.TextField(null=False, blank=True, default='')
-    birth_date = models.DateField(verbose_name='Data urodzenia', auto_created=True)
+    birth_date = models.DateField(verbose_name='Date of birth', auto_created=True)
 
     class Meta:
         verbose_name = 'Zawodnik'
