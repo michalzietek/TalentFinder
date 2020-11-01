@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'app_home',
-    'app_players'
+    'app_players',
 ]
 
 MIDDLEWARE = [
@@ -128,6 +128,8 @@ COMPRESS_ROOT = os.path.join(BASE_DIR, 'static')
 COMPRESS_URL = STATIC_URL
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+LOGIN_REDIRECT_URL = '/'
 
 try:
     from .local_settings import * # NOQA
