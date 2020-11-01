@@ -38,7 +38,7 @@
                         <td>{{ player.rating }}</td>
                          <td class="text-right">
                              <a href="#" class="btn-sm btn-primary" data-toggle="tooltip" data-placement="bottom"  title="Details"><i class="fas fa-info-circle"></i></a>
-                             <a href="#" data-url="#" class="btn-sm btn-success edit-contractor-btn" data-id="{{ player.id }}" data-toggle="tooltip" data-placement="bottom"  title="Edit"><i class="fas fa-fw fa-edit"></i></a>
+                             <a href="#" data-url="{% url 'ajax_edit_player'  player.id  %}" class="btn-sm btn-success edit-player-btn" data-id="{{ player.id }}" data-toggle="tooltip" data-placement="bottom"  title="Edit"><i class="fas fa-fw fa-edit"></i></a>
                              <a data-id="{{ player.id }}" class="delete-player-btn btn-sm btn-danger" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-fw fa-trash-alt"></i></a>
               </td>
                     </tr>
@@ -49,4 +49,5 @@
        </div>
     </div>
 {% include 'modals/delete_player_modal.html' %}
+{% include 'modals/edit_player_modal.html' %}
 {% endblock %}
